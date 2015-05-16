@@ -1,0 +1,37 @@
+\begin{filecontents}{\jobname.bib}
+@book{companion,
+  author       = {Goossens, Michel and Mittelbach, Frank and Samarin, Alexander},
+  title        = {The LaTeX Companion},
+  year         = 1994,
+  edition      = 1,
+  editor = {Sandmann},
+  publisher    = {Addison-Wesley},
+}
+@online{ctan,
+	author={testautor},
+  title        = {CTAN},
+  year         = 2006,
+  url          = {http://www.ctan.org},
+  subtitle     = {The Comprehensive TeX Archive Network},
+}
+
+\end{filecontents}
+
+
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{url}
+\urlstyle{same}
+\usepackage[numbers]{natbib}
+\bibliographystyle{curlyhead}
+%\newcommand{\bbletalfont}{\itshape}
+\let\citeP\citep
+\renewcommand\citep[1]{{\scshape\citeP{#1}}}
+\bibpunct{(}{)}{;}{}{}{,}
+\begin{document}
+\citep{companion}\par
+\citep{ctan}
+\bibliography{\jobname}
+\end{document}
