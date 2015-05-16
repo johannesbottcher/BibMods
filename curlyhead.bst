@@ -228,7 +228,7 @@ FUNCTION {bbl.and}
 { "und"}
 
 FUNCTION {bbl.etal}
-{ "{\bbletalfont{} et~al.}" }
+{ "{\bbletalfont{}et~al.}" }
 
 FUNCTION {bbl.editors}
 { "Hg." }
