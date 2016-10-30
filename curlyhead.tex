@@ -23,13 +23,19 @@
 \usepackage[ngerman]{babel}
 \usepackage[T1]{fontenc}
 \usepackage{url}
+\usepackage{xpatch}
+\tracingpatches
 \urlstyle{same}
 \usepackage[numbers]{natbib}
 \bibliographystyle{curlyhead}
-%\newcommand{\bbletalfont}{\itshape}
 \let\citeP\citep
-\renewcommand\citep[1]{{\scshape\citeP{#1}}}
 \bibpunct{(}{)}{;}{}{}{,}
+\makeatletter
+\newcommand{\citefont}{\scshape}
+\renewcommand*\NAT@nmfmt[1]{{\citefont\NAT@up#1}}
+%or the following to make it unbreakable
+%\renewcommand*\NAT@nmfmt[1]{{\mbox{\citefont\NAT@up#1}}}
+\makeatother
 \begin{document}
 \citep{companion}\par
 \citep{ctan}
